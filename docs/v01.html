@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>  
+        <title>Zihao INF1339 Project 2</title>
+        <style>
+            .output {font: italic bold 12px/30px Georgia, serif;
+                     color: chartreuse;}
+        </style>
+        <script>
+            // store global variable
+            var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=rainbow&api-key=1iq4h5TY7qccdyiGNJz2QxA2FG8OCdHe";
+            var artical_count = 0
+            
+            function setup() {
+                noCanvas();
+                loadJSON(url, gotData);
+            }
+            
+            function gotData(data) {
+                alert("FUNCTION GOTDATA WAS ACTIVATED")
+                document.getElementById("test_output").innerHTML = data.response.docs[0].headline.main
+            }
+            
+        </script>
+    </head>
+    <body>
+        <h1>New York Times API: Articles from all time about rainbows</h1>
+        <p id="test_output" class="output"> </p>
+    </body>
+</html>
